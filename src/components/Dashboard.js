@@ -198,6 +198,7 @@ DashboardComponent.getDetailCountry = () => {
                     <td>${x.recovered}</td>
                     <td>${x.deaths}</td>
                     <td>${x.deathRatio}%</td>
+                    <td>${x.recoveredRatio}%</td>
                 </tr>
             `
             })

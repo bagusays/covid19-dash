@@ -1,4 +1,4 @@
-let versionRevision = '100000399';
+let versionRevision = '100000402';
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.1.0/workbox-sw.js');
 
@@ -39,7 +39,7 @@ workbox.precaching.precache([
         url: '/assets/css/main.css',
         revision: versionRevision,
     }, {
-        url: '/assets/css/materialize.css',
+        url: '/assets/css/materialize.min.css',
         revision: versionRevision,
     }, {
         url: '/assets/img/COVIDweb_05_mask.png',
@@ -63,7 +63,7 @@ workbox.precaching.precache([
         url: '/assets/js/momentjs.min.js',
         revision: versionRevision,
     }, {
-        url: '/assets/js/highstock.js',
+        url: '/assets/js/highcharts.js',
         revision: versionRevision,
     }, {
         url: '/assets/js/highchart-exporting.js',
