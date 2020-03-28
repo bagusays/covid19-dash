@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="theme-color" content="#3982C9" />
+    <title>Covid-19</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/assets/img/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Aleo|Quicksand" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link rel="stylesheet" href="/assets/css/materialize.min.css" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body style="margin: 0">
+    <div class="container">
+        <div id="root"><div class="initial-loading-text">Please wait<br>Get some coffee and come back in ten minutes..</div></div>
+        <div class="navigation-bottom">
+            <div id="homeBottomNav" onclick="routerLink('/')" class="navigation-bottom-content">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </div>
+            <div id="tipsTrickBottomNav" onclick="routerLink('/tips-trick')" class="navigation-bottom-content">
+                <i class="material-icons">emoji_objects</i>
+                <span>Tips & Trick</span>
+            </div>
+            <div id="aboutBottomNav" onclick="routerLink('/about')" class="navigation-bottom-content">
+                <i class="material-icons">info</i>
+                <span>About</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/jquery-slim.min.js"></script>
+    <script src="/assets/js/materialize.min.js"></script>
+    <script src="/assets/js/axios.min.js"></script>
+    <script src="/assets/js/momentjs.min.js"></script>
+    <script src="/assets/js/highcharts.js"></script>
+    <script src="/assets/js/highcharts-exporting.js"></script>
+    <script>
+        let newWorker;
+
+        // The click event on the notification
+        function reloadSW() {
+            newWorker.postMessage({
+                action: 'skipWaiting'
+            });
+            location.reload();
+        }
+
+        if ('serviceWorker' in navigator) {
+            // Register the service worker
+            navigator.serviceWorker.register('/serviceWorker.js').then(reg => {
+                reg.addEventListener('updatefound', () => {
+
+                    // An updated service worker has appeared in reg.installing!
+                    newWorker = reg.installing;
+
+                    newWorker.addEventListener('statechange', () => {
+
+                        // Has service worker state changed?
+                        switch (newWorker.state) {
+                            case 'installed':
+
+                                // There is a new service worker available, show the notification
+                                if (navigator.serviceWorker.controller) {
+                                    var toastHTML = '<span>Tersedia versi terbaru. Silahkan reload halaman ini</span><button onclick="reloadSW()" class="btn-flat toast-action">Reload</button>';
+                                    M.toast({html: toastHTML});
+                                }
+
+                                break;
+                        }
+                    });
+                });
+            });
+
+        }
+    </script>
+</body>
+
+</html>

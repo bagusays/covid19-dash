@@ -1,0 +1,67 @@
+<div class="top-header">
+    <div><span class="top-header-text">Covid-19</span></div>
+    <div class="last-update">
+        <span class="last-update-text">Last updated: <span id="lastUpdate">Please wait..</span></span>
+    </div>
+</div>
+
+<div  id="chart"></div>
+
+<div class="row" style="margin: 0 10px 0 10px;">
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-content" style="text-align: center;">
+                <p class="number-headline confirmed-val" id="confirmed">Please wait..</p>
+                <span class="subtitle-headline">Confirmed</span>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-content" style="text-align: center;">
+                <p class="number-headline death-val" id="deaths">Please wait..</p>
+                <span class="subtitle-headline">Deaths</span>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-content" style="text-align: center;">
+                <p class="number-headline recovered-val" id="recovered">Please wait..</p>
+                <span class="subtitle-headline">Recovered</span>
+            </div>
+        </div>
+    </div>
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content" style="text-align: center;">
+                <p class="number-headline">Indonesia</p>
+                <p class="subtitle-headline">Confirmed: <span class="bold confirmed-val" id="confirmedIndo">Please wait..</span></p>
+                <p class="subtitle-headline">Recovered: <span class="bold recovered-val" id="recoveredIndo">Please wait..</span></p>
+                <p class="subtitle-headline">Death: <span class="bold death-val" id="deathsIndo">Please wait..</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-rounded">
+        <div class="scrolling-table" id="data-table">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Confirmed</th>
+                        <th>Recovered</th>
+                        <th>Death</th>
+                        <th>Death Ratio</th>
+                        <th>Recovered Ratio</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                    <tr>
+                        <td colspan=5>Please wait...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
